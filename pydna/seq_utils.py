@@ -28,6 +28,24 @@ def complement_codon(input_codon):
     return complemented_codon
 
 def is_codon_correct(input_codon):
+    """Function to check if input codon are properly formatted
+    
+    :param input_codon: DNA seq consisting of three bases (codon)
+    :return: True or False
+    
+    >>> from pydna import seq_utils
+    >>> input_codon = 'ATC'
+    >>> seq_utils.is_codon_correct(input_codon)
+    True
+    
+    """
+    
+    if type(input_codon) == int:
+        return False
+    
+    if type(input_codon) == float:
+        return False    
+    
     allowed_chars = ['A', 'T', 'G', 'C', 'N', '?', '-']    
     for base in input_codon:
         if base.upper() in allowed_chars:
